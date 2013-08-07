@@ -95,9 +95,12 @@ cdef class InvertedIndex(corpusstats.CorpusStats):
         else:
             return None
 
-    def remove(self, a):
-        raise Exception
-        #del self.ii[a]
+    def clear(self, a):
+        if has_a2avs(self.ii, a):
+            avs = atomvectorstore.AtomVectorStore()
+            set_a2avs(self.ii, a, <void*> avs)
+
+        return self
 
     def atoms(self):
         cdef a2avsitr it = self.ii.begin()

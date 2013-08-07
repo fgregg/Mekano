@@ -21,6 +21,7 @@ cdef extern from "CUtils.h":
         a2avsitr begin()
         a2avsitr end()
 
+
     a2avs* new_a2avs "new AtomToAtomVectorStoreMap" ()
     #void del_a2avs "delete" (a2avs* h)
     int has_a2avs(a2avs* dict, int a)
